@@ -1,0 +1,33 @@
+pipeline{
+    agent any
+    stages{
+        stage('hostname'){
+            steps{
+                sh '''
+                    hostname
+                '''
+            }
+        }
+        stage('Memory'){
+            steps{
+                sh '''
+                    free -h
+                '''
+            }
+        }
+        stage('Disk Utilization'){
+            steps{
+                sh '''
+                    df -kh
+                '''
+            }
+        }
+        stage('Sever-Details'){
+            steps{
+                sh '''
+                    uname -a
+                '''
+            }
+        }
+    }
+}
